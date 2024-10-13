@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+    <h2>Character Info: </h2>
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Level</th>
+                <th>User</th>
+                <th>Server</th>
+                <th>Class</th>
+                <th>Faction</th>
+            </tr>
+            <tbody>
+                <tr>
+                    <td> {{ characterInfo.characterID }} </td>
+                    <td> {{ characterInfo.characterName }} </td>
+                    <td> {{ characterInfo.level }} </td>
+                    <td>
+                        {% for user in users %}
+                        {% if user.userID == characterInfo.userID %} {{user.userName}} {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for server in servers %}
+                        {% if server.serverID == characterInfo.serverID %} {{server.location}} {% endif %}
+                        {% endfor %}
+                    </td>                   
+                    <td>
+                        {% for class in classes %}
+                        {% if class.classID == characterInfo.classID %} {{class.className}} {% endif %}
+                        {% endfor %} 
+                    </td>
+                    <td> 
+                        {% for faction in factions %}
+                        {% if faction.factionID == characterInfo.factionID %} {{faction.factionName}} {% endif %}
+                        {% endfor %} 
+                    </td>
+                </tr>
+        </table>
+
+    </div>
+
+</div>
+<h2>Character Inventory: </h2>
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Weapon</th>
+                <th>Damage</th>
+                <th>Hit %</th>
+            </tr>
+            <tbody>
+            {% for item in inventory %}
+                {% if item.characterID == characterInfo.characterID %} 
+                    {% for weapon in weapons %}
+                        {% if weapon.weaponID == item.weaponID %} 
+                        <tr>
+                            <td> {{weapon.weaponName}} </td> 
+                            <td> {{weapon.damage}} </td> 
+                            <td> {{weapon.hit_pct}} </td> 
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+                {% endif %}
+            
+            {% endfor %}   
+        </table>
+
+    </div>
+
+
+
+{% endblock %}

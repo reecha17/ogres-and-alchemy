@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+    <h2>Classes: </h2>
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tbody>
+            {% for class in classes %}
+                <tr>
+                    <td> {{ class.classID }} </td>
+                    <td> {{ class.className }} </td>
+                    <td> <a href= "/edit_class/{{ class.classID }}"> edit </a> </td>
+                    <td> <a href= "/delete_class/{{ class.classID }}"> delete </a> </td>
+                </tr>
+        
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="container">
+        <h3>Create Class:</h3>
+            <div class="container"> 
+                <form method="POST" action="/create_class">
+                    <label for="className">Name: </label> <input type="text" name="className" value=""> <br>
+                    <button type="submit">Create Class</button>
+                </form>
+            </div>
+    </div>
+</div>
+
+{% endblock %}

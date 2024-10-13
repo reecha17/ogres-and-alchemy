@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+    <h2>Servers: </h2>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Location</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            <tbody>
+                {% for server in servers %}
+                <tr>
+                    <td> {{ server.serverID }} </td>
+                    <td> {{ server.location }} </td>
+                    <td> <a href="/edit_server/{{ server.serverID }}"> edit </a> </td>
+                    <td> <a href="/delete_server/{{ server.serverID }}"> delete </a> </td>
+                </tr>
+                {% endfor %}
+        </table>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="container">
+        <h3>Create Server:</h3>
+        <div class="container">
+            <form method="POST" action="/create_server">
+                <label for="location">Location: </label> <input type="text" name="location" value=""> <br>
+                <button type="submit">Create Server</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

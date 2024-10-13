@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Edit Weapon</h3>
+<div class='jumbtron'>
+    <div class='container'>
+        <form method="POST" action="/update_weapon">
+            <label for="weaponID">ID</label> <input type="text" name="weaponID" value=" {{ weaponInfo.weaponID }}"
+                readonly><br>
+            <label for="weaponName">Name: </label> <input type="text" name="weaponName"
+                value="{{ weaponInfo.weaponName }}"> <br>
+            <label for="damage"> Damage: </label> <input type="text" name="damage" value="{{ weaponInfo.damage }}"> <br>
+            <label for="hit_pct"> Hit %: </label> <input type="text" name="hit_pct" value="{{ weaponInfo.hit_pct }}">
+            <br>
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

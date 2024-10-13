@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+    <h2>Weapons: </h2>
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Damage</th>
+                <th>Hit %</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tbody>
+            {% for weapon in weapons %}
+                <tr>
+                    <td> {{ weapon.weaponID }} </td>
+                    <td> {{ weapon.weaponName }} </td>
+                    <td> {{ weapon.damage }} </td>
+                    <td> {{ weapon.hit_pct }} </td>
+                    <td> <a href= "/edit_weapon/{{ weapon.weaponID }}"> edit </a> </td>
+                    <td> <a href= "/delete_weapon/{{ weapon.weaponID }}"> delete </a> </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="container">
+        <h3>Create Weapon:</h3>
+            <div class="container"> 
+                <form method="POST" action="/create_weapon">
+                    <label for="weaponName">Name: </label> <input type="text" name="weaponName" value=""> <br>
+                    <label for="damage">Damage: </label> <input type="text" name="damage" value=""> <br>
+                    <label for="hit_pct">Hit %: </label> <input type="text" name="hit_pct" value=""> <br>
+                    <button type="submit">Create Weapon</button>
+                </form>
+            </div>
+    </div>
+</div>
+
+{% endblock %}

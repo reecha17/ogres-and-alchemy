@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Edit Class</h3>
+<div class="jumbtron">
+    <div class="container">
+        <form method="POST" action="/update_class">
+            <label for="classID">classID</label> <input type="text" name="classID" value="{{ classInfo.classID }}"
+                readonly><br>
+            <label for="className">className: </label> <input type="text" name="className"
+                value="{{ classInfo.className }}">
+            <br>
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

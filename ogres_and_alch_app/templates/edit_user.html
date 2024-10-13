@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Edit User</h3>
+<div class='jumbtron'>
+    <div class='container'>
+        <form method="POST" action="/update_user">
+            <label for="userID">ID</label> <input type="text" name="userID" value=" {{ userInfo.userID }}" readonly><br>
+            <label for="email">Email: </label> <input type="text" name="email" value="{{ userInfo.email }}"> <br>
+            <label for="userName"> Username: </label> <input type="text" name="userName" value="{{ userInfo.userName }}"> <br>
+           <button type="submit">Save Changes</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

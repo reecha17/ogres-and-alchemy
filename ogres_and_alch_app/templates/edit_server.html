@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Edit Server</h3>
+
+<form method="POST" action="/update_server">
+         <label for="classID">serverID</label> <input type="text" name="serverID" value="{{ serverInfo.serverID }}" readonly><br>
+         <label for="className">Location: </label> <input type="text" name="location" value="{{ serverInfo.location }}"> <br>
+        <button type="submit">Save Changes</button>
+</form>
+{% endblock %}

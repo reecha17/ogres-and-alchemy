@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+    <h2>Factions: </h2>
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tbody>
+            {% for faction in factions %}
+                <tr>
+                    <td> {{ faction.factionID }} </td>
+                    <td> {{ faction.factionName }} </td>
+                    <td> <a href= "/edit_faction/{{ faction.factionID }}"> edit </a> </td>
+                    <td> <a href= "/delete_faction/{{ faction.factionID }}"> delete </a> </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="container">
+        <h3>Create Faction:</h3>
+            <div class="container"> 
+                <form method="POST" action="/create_faction">
+                    <label for="factionName">Name: </label> <input type="text" name="factionName" value=""> <br>
+                    <button type="submit">Create Faction</button>
+                </form>
+            </div>
+    </div>
+</div>
+
+{% endblock %}

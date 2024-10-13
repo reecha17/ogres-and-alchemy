@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+    <h2>Inventory: </h2>
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Character</th>
+                <th>Weapon</th>
+                <th>Delete</th>
+            </tr>
+            <tbody>
+            {% for item in inventory %}
+                <tr>
+                    {% for character in characters %}
+                    {% if item.characterID == character.characterID %} <td> {{character.characterName}} </td> {% endif %}
+                    {% endfor %}
+                    <!-- <td> {{ item.characterID }} </td> -->
+                    {% for weapon in weapons %}
+                    {% if item.weaponID == weapon.weaponID %} <td> {{weapon.weaponName}} </td> {% endif %}
+                    {% endfor %}
+                    <td> <a href= "/delete_inventory?characterID={{ item.characterID }}&weaponID={{ item.weaponID }}"> delete </a> </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="container">
+        <h3>Create Inventory Item:</h3>
+            <div class="container"> 
+                <form method="POST" action="/create_inventory">
+                    <label for="characterID"> Character: </label> 
+                    <select name="characterID" id="characterID"> 
+                        {% for character in characters %}
+                            <option value= "{{ character.characterID }}"> {{ character.characterName }} </option>
+                        {% endfor %}
+                    </select> <br>
+                    <label for="weaponID"> Weapon: </label> 
+                    <select name="weaponID" id="weaponID"> 
+                        {% for weapon in weapons %}
+                            <option value= "{{ weapon.weaponID }}"> {{ weapon.weaponName }} </option>
+                        {% endfor %}
+                    </select> <br>
+                    <button type="submit">Add Item to Inventory</button>
+                </form>
+            </div>
+    </div>
+</div>
+
+{% endblock %}

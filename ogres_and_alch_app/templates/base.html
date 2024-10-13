@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://getbootstrap.com/docs/3.4/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://getbootstrap.com/docs/3.4/examples/jumbotron/jumbotron.css" rel="stylesheet">
+        <script src="https://getbootstrap.com/docs/3.4/assets/js/ie-emulation-modes-warning.js"></script>
+        <title>Ogres And Alchemy Characters Page</title>
+    </head>
+    <div class="navlist">
+        <div class="container">
+            <a href="{{ url_for ('index') }}">MAIN</a>
+            <a href="{{ url_for ('users') }}">USERS</a>
+            <a href="{{ url_for ('servers') }}">SERVERS</a>
+            <a href="{{ url_for ('weapons') }}">WEAPONS</a>
+            <a href="{{ url_for ('classes') }}">CLASSES</a>
+            <a href="{{ url_for ('characters') }}">CHARACTERS</a>
+            <a href="{{ url_for ('inventory') }}">INVENTORY</a>
+            <a href="{{ url_for ('factions') }}">FACTIONS</a>
+            <div class="search" style="width: 30%; float:right; text-align:left;">
+                <form method="POST" action="/search_characters">
+                    <input type="search_term" placeholder="Search Characters.." name="search_term">
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+        </div>
+    <div class="jumbrotron">
+        <div class="container">
+            <header>
+                <h1>Ogres And Alchemy </h1>
+            </header>
+        </div>
+    </div>
+    <div class="jumbrotron">
+        <div class="container">
+        {% block content %}
+        {% endblock %}
+        </div>
+    </div>
+</html>

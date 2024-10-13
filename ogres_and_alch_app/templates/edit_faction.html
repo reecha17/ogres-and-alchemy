@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Edit Faction</h3>
+
+<form method="POST" action="/update_faction">
+    <label for="factionID">ID</label> <input type="text" name="factionID" value="{{ factionInfo.factionID }}"
+        readonly><br>
+    <label for="factionName">Name: </label> <input type="text" name="factionName" value="{{ factionInfo.factionName }}">
+    <br>
+    <button type="submit">Save Changes</button>
+</form>
+{% endblock %}

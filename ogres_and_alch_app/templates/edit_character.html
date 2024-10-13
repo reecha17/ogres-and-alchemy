@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Edit Character</h3>
+<div class='jumbtron'>
+    <div class='container'>
+        <form method="POST" action="/update_character">
+            <label for="characterID">characterID</label> <input type="text" name="characterID" value=" {{ characterInfo.characterID }}" readonly><br>
+            <label for="characterName">characterName: </label> <input type="text" name="characterName" value="{{ characterInfo.characterName }}"> <br>
+            <label for="level"> level: </label> <input type="text" name="level" value="{{ characterInfo.level }}"> <br>
+            <label for="userID"> userID: </label> 
+               <select name="userID" id="userID"> 
+                   {% for user in users %}
+                       <option value= "{{ user.userID }}" {% if user.userID == characterInfo.userID %} selected {% endif %}> {{ user.userID }} - {{ user.userName }} </option>
+                   {% endfor %}
+               </select> <br>
+            <label for="serverID"> serverID: </label> 
+               <select name="serverID" id="serverID">      
+                   {% for server in servers %}
+                   <option value= "{{ server.serverID }}" {% if server.serverID == characterInfo.serverID %} selected {% endif %}> {{ server.serverID }} - {{ server.location }} </option>
+                   {% endfor %}
+               </select> <br>
+            <label for="classID"> classID: </label> 
+               <select name="classID" id="classID">      
+                   {% for class in classes %}
+                   <option value= "{{ class.classID }}" {% if class.classID == characterInfo.classID %} selected {% endif %}> {{ class.classID }} - {{ class.className }} </option>
+                   {% endfor %}
+               </select> <br>
+            <label for="factionID"> factionID: </label> 
+               <select name="factionID" id="factionID">      
+                   <option value= "NULL"> NULL </option>
+                   {% for faction in factions %}
+                   <option value= "{{ faction.factionID }}" {% if faction.factionID == characterInfo.factionID %} selected {% endif %}> {{ faction.factionID }} - {{ faction.factionName }} </option>
+                   {% endfor %}
+               </select> <br>
+           <button type="submit">Save Changes</button>
+   </form>
+    </div>
+
+</div>
+
+{% endblock %}
