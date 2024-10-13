@@ -1,7 +1,7 @@
-Overview
+# Overview
 
 This is a portfolio project that was made for OSU's CS340 Databases course. It is an implementation of a relationial database using HTML, Flask, and MySQL. The database is supposed to represent a fictional MMORPG that has Servers, Users, Characters, Classes, and Weapons. My partner, John Lemley, and I drafted a Entity Relationship Diagram (ERD) before building the database using MySQL's workbench. We implemented 35 endpoints to handle CRUD operations to our database using Flask. We also developed 16 HTML pages to draft up a simple UI on the web to manipulate and display the data retrieved from the database. Lastly we wrote two SQL scripts, a Data Definition Query and a Data Manipulation Query, to populate and test our database to make sure things were working smoothly.
 
-Lessons Learned
+# Lessons Learned
 
 One part of this project that I know could have improved heavily was the design choice of the HTML pages. I did too much leg work manually creating each HTML page and using a frontend framework like React could have helped a lot in terms of reusable code to save time. We chose Flask because we were more comfortable with Python, instead of learning a newer technology that could have been more rewarding. Next time I would rather learn a new technology and expand my breadth of knowledge to see the differences instead of sticking with something I am more comfortable with, especially for a project about learning new things. Although, I do admit that the point of the project was not about the frontend, I still think we would have been able to handle it.
